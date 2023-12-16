@@ -1,0 +1,67 @@
+::root {
+	--color-background: #08171E;
+	--color-border: #096B90;
+	--color-border-top: #71B7D5;
+}
+.wrapper {
+	background-color: #08171E;
+	min-height: 100vh;
+	min-width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	overflow: none;
+}
+
+
+.circle {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	animation: fadeOut 1s linear forwards;
+}
+
+.circle .border {
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 10px solid #096B90;
+	border-top: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: transparent;
+	animation: spinAndFade 1s linear forwards;
+}
+
+@keyframes spinAndFade {
+	0% {
+		transform: rotate(0deg);
+		opacity: 1;
+	}
+	50% {
+		transform: rotate(180deg);
+		opacity: 0.5;
+	}
+	100% {
+		transform: rotate(360deg);
+		opacity: 0;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
