@@ -1,7 +1,8 @@
 <template>
-	<template lwc:if={showSpashScreen}>
-		<header class="navbar">
-			<h1>Test</h1>
-		</header>
-	</template>
+    <template lwc:if={showSplashScreen}>
+        <c-splashscreen></c-splashscreen>
+    </template>
+    <template lwc:else>
+        <h1>Test</h1>
+    </template>
 </template>

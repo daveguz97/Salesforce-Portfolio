@@ -1,10 +1,6 @@
-::root {
-	--color-background: #08171E;
-	--color-border: #096B90;
-	--color-border-top: #71B7D5;
-}
 .wrapper {
 	background-color: #08171E;
+	position: absolute;
 	min-height: 100vh;
 	min-width: 100vw;
 	display: flex;
@@ -22,7 +18,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	animation: fadeOut 1s linear forwards;
+	/* animation: fadeOut 1s linear forwards; */
 }
 
 .circle .border {
@@ -37,21 +33,21 @@
 	bottom: 0;
 	right: 0;
 	background-color: transparent;
-	animation: spinAndFade 1s linear forwards;
+	animation: spinAndFade 2.5s linear infinite;
 }
 
 @keyframes spinAndFade {
 	0% {
 		transform: rotate(0deg);
-		opacity: 1;
+		/* opacity: 1; */
 	}
 	50% {
 		transform: rotate(180deg);
-		opacity: 0.5;
+		/* opacity: 0.5; */
 	}
 	100% {
 		transform: rotate(360deg);
-		opacity: 0;
+		/* opacity: 0; */
 	}
 }
 
