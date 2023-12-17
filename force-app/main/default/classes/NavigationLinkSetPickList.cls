@@ -74,7 +74,7 @@ global with sharing class NavigationLinkSetPickList {
             AND MasterLabel = :navigationLinkSetMasterLabel
             LIMIT 1
         ];
-
+		System.debug('navigationLinkSets: ' + navigationLinkSets);
         System.assert(navigationLinkSets.size() == 1);
         NavigationLinkSet navigationLinkSet = navigationLinkSets.get(0);
         return navigationLinkSet.DeveloperName;

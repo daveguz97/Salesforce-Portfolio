@@ -1,17 +1,13 @@
 import { LightningElement } from 'lwc';
 
 export default class Home extends LightningElement {
-	showSplashScreen = true;
+	showSplashScreen
 
 	connectedCallback() {
-		this.removeSplashScreen();
+		this.showSplashScreen = true;
 	}
 
-	removeSplashScreen() {
-		// eslint-disable-next-line @lwc/lwc/no-async-operation
-		setTimeout(() => {
-			this.showSplashScreen = false;
-		}
-		, 3000);
+	removeSplashHandler() {
+		this.showSplashScreen = false;
 	}
 }
