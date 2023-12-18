@@ -102,10 +102,6 @@ export default class NavigationMenu extends LightningElement {
         }
     }
 
-    connectedCallback() {
-        document.body.style.overflowX = "hidden";
-    }
-
     burgerClickHandler() {
         let burger = this.template.querySelector(".burger");
         let nav = this.template.querySelector(".nav-links");

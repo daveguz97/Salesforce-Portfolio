@@ -1,0 +1,7 @@
+<template>
+    <lightning-card title="3x Certified Salesforce Developer">
+        <template for:each={images} for:item="img">
+			<img key={img.id} src={img.src} alt={img.alt} />
+		</template>
+    </lightning-card>
+</template>

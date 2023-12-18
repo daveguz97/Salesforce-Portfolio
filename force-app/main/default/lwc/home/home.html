@@ -1,3 +1,16 @@
 <template>
-	<h1 class="slds-text-heading_large">Home</h1>
+	<section style={backgroundImg} class="home">
+		<div class="container slds-m-around_x-large">
+			<div class="img-content">
+				<img src={img} alt="Picture of David Guzman">
+			</div>
+			<div class="text-content slds-m-around_large">
+				<h1 class="slds-text-heading_large slds-text-color_inverse">David Guzman</h1>
+				<p class="lead slds-text-heading_large slds-text-color_inverse">Salesforce Developer</p>
+			</div>
+		</div>
+		<div class="certifications slds-m-around_x-large">
+			<c-certifications></c-certifications>
+		</div>
+	</section>
 </template>
