@@ -1,0 +1,13 @@
+:host {
+	--dxp-c-link-text-color: #ffffff;
+	--dxp-c-link-text-color-hover: #A1CCDC;
+	--dxp-c-link-text-color-active: #A1CCDC;
+	--dxp-c-link-text-color-focus: #A1CCDC;
+	--dxp-s-link-text-decoration-hover: none;
+	--dxp-s-link-text-decoration-focus: none;
+	--dxp-s-link-text-decoration-active: none;
+}
+
+.nav-link {
+	letter-spacing: 3px;
+}

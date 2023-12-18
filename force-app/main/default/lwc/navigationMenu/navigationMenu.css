@@ -1,8 +1,86 @@
-.navbar {
-    padding-bottom: 10px;
-    background-color: var(--lwc-cardBackgroundColor);
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #042b44;
 }
 
-nav {
-    min-height: 35px;
+.nav-links {
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: #042b44;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .burger div {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px;
+		transition: all .3s ease;
+    }
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+	.toggle .line1 {
+		transform: rotate(-45deg) translate(-5px,6px);
+		height: 5px;
+	}
+	.toggle .line2 {
+		display: none;
+	}
+	.toggle .line3 {
+		transform: rotate(45deg) translate(-5px,-6px);
+		height: 5px;
+	}
+}
+
+.nav-link-animaion-active {
+    animation: navLinkFade 0.5s ease forwards;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

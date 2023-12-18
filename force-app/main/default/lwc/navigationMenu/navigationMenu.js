@@ -1,30 +1,29 @@
-import { LightningElement, api, wire, track } from 'lwc';
-import { CurrentPageReference } from 'lightning/navigation';
+import { LightningElement, api, wire, track } from "lwc";
+import { CurrentPageReference } from "lightning/navigation";
 
-import getNavigationMenuItems from '@salesforce/apex/NavigationMenuItemsController.getNavigationMenuItems';
+import getNavigationMenuItems from "@salesforce/apex/NavigationMenuItemsController.getNavigationMenuItems";
 
 /**
  * This is a custom LWC navigation menu component.
  * Make sure the Guest user profile has access to the NavigationMenuItemsController apex class.
  */
 export default class NavigationMenu extends LightningElement {
-
     /**
      * the label or name of the nav menu linkset (NavigationMenuLinkSet.MasterLabel) exposed by the .js-meta.xml,
      * used to look up the NavigationMenuLinkSet.DeveloperName
      */
-     @api linkSetMasterLabel;
+    @api linkSetMasterLabel;
 
-     /**
-      * include the Home menu item, if true
-      */
-     @api addHomeMenuItem = false;
- 
-     /**
-      * include image URLs in the response, if true
-      * useful for building a tile menu with images
-      */
-     @api includeImageUrls = false;
+    /**
+     * include the Home menu item, if true
+     */
+    @api addHomeMenuItem = false;
+
+    /**
+     * include image URLs in the response, if true
+     * useful for building a tile menu with images
+     */
+    @api includeImageUrls = false;
 
     /**
      * the menu items when fetched by the NavigationItemsController
@@ -42,7 +41,7 @@ export default class NavigationMenu extends LightningElement {
     @track error;
 
     /**
-     * the published state of the site, used to determine from which schema to 
+     * the published state of the site, used to determine from which schema to
      * fetch the NavigationMenuItems
      */
     publishStatus;
@@ -50,16 +49,16 @@ export default class NavigationMenu extends LightningElement {
     /**
      * Using a custom Apex controller, query for the NavigationMenuItems using the
      * menu name and published state.
-     * 
-     * The custom Apex controller is wired to provide reactive results. 
+     *
+     * The custom Apex controller is wired to provide reactive results.
      */
     @wire(getNavigationMenuItems, {
-        navigationLinkSetMasterLabel: '$linkSetMasterLabel',
-        publishStatus: '$publishStatus',
-        addHomeMenuItem: '$addHomeMenuItem',
-        includeImageUrl: '$includeImageUrls'
+        navigationLinkSetMasterLabel: "$linkSetMasterLabel",
+        publishStatus: "$publishStatus",
+        addHomeMenuItem: "$addHomeMenuItem",
+        includeImageUrl: "$includeImageUrls"
     })
-    wiredMenuItems({error, data}) {
+    wiredMenuItems({ error, data }) {
         if (data && !this.isLoaded) {
             this.menuItems = data.map((item, index) => {
                 return {
@@ -70,7 +69,7 @@ export default class NavigationMenu extends LightningElement {
                     subMenu: item.subMenu,
                     imageUrl: item.imageUrl,
                     windowName: item.target
-                }
+                };
             });
             this.error = undefined;
             this.isLoaded = true;
@@ -78,23 +77,46 @@ export default class NavigationMenu extends LightningElement {
             this.error = error;
             this.menuItems = [];
             this.isLoaded = true;
-            console.error(`Navigation menu error: ${JSON.stringify(this.error)}`);
+            console.error(
+                `Navigation menu error: ${JSON.stringify(this.error)}`
+            );
         }
     }
 
     /**
      * Using the CurrentPageReference, check if the app is 'commeditor'.
-     * 
-     * If the app is 'commeditor', then the page will use 'Draft' NavigationMenuItems. 
+     *
+     * If the app is 'commeditor', then the page will use 'Draft' NavigationMenuItems.
      * Otherwise, it will use the 'Live' schema.
-    */
+     */
     @wire(CurrentPageReference)
     setCurrentPageReference(currentPageReference) {
-        const app = currentPageReference && currentPageReference.state && currentPageReference.state.app;
-        if (app === 'commeditor') {
-            this.publishStatus = 'Draft';
+        const app =
+            currentPageReference &&
+            currentPageReference.state &&
+            currentPageReference.state.app;
+        if (app === "commeditor") {
+            this.publishStatus = "Draft";
         } else {
-            this.publishStatus = 'Live';
+            this.publishStatus = "Live";
+        }
+    }
+
+    connectedCallback() {
+        document.body.style.overflowX = "hidden";
+    }
+
+    burgerClickHandler() {
+        let burger = this.template.querySelector(".burger");
+        let nav = this.template.querySelector(".nav-links");
+        let navLinks = this.template.querySelectorAll(".nav-links li");
+        if (nav && navLinks.length > 0) {
+            nav.classList.toggle("nav-active");
+            navLinks.forEach((link, index) => {
+                link.classList.toggle("nav-link-animaion-active");
+                link.style.animationDelay = `${index / 7 + 0.3}s`;
+            });
+            burger.classList.toggle("toggle");
         }
     }
 }

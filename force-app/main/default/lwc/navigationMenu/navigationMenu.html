@@ -1,13 +1,21 @@
 <template>
     <div class="navbar slds-border_bottom">
-        <nav role="navigation" class="slds-align_absolute-center">
-           <ul class="slds-list_horizontal slds-has-dividers_right slds-has-block-links_space">
-               <template for:each={menuItems} for:item="item">
-                   <li key={item.id} class="slds-item">
-                       <c-navigation-menu-item item={item}></c-navigation-menu-item>
-                   </li>
-               </template>
-           </ul>
-       </nav>
+        <nav role="navigation">
+            <c-logo></c-logo>
+            <ul data-id="nav-links" class="nav-links">
+                <template for:each={menuItems} for:item="item">
+                    <li key={item.id}>
+                        <c-navigation-menu-item
+                            item={item}
+                        ></c-navigation-menu-item>
+                    </li>
+                </template>
+            </ul>
+			<div onclick={burgerClickHandler} class="burger">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+        </nav>
     </div>
 </template>
