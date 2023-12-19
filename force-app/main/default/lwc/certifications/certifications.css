@@ -1,6 +1,4 @@
 lightning-card {
-	display: grid;
-	grid-template-rows: auto;
 	text-align: center;
 	padding: 1rem;
 	margin-right: 1rem;

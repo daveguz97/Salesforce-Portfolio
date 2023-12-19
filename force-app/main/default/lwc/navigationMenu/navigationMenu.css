@@ -25,13 +25,13 @@ nav {
         height: 92vh;
         top: 8vh;
         background-color: #042b44;
+		z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 50%;
-        transition: transform 0.5s ease-in;
+        transition: all 0.5s ease-in;
 		opacity: 0;
-		transition: opacity .3s ease-in;
     }
 
     .nav-links li {
