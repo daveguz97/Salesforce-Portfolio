@@ -1,0 +1,8 @@
+<template>
+    <section class="slds-grid slds-gutters">
+		<template lwc:if={modules}>
+			<lightning-datatable key-field="Id" data={modules.data} columns={columns}>
+			</lightning-datatable>
+		</template>
+    </section>
+</template>
