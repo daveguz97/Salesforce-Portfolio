@@ -1,8 +1,5 @@
 <template>
-    <section class="slds-grid slds-gutters">
-		<template lwc:if={modules}>
-			<lightning-datatable key-field="Id" data={modules.data} columns={columns}>
-			</lightning-datatable>
-		</template>
-    </section>
+    <lightning-card class="slds-col slds-large-size_1-of-2 slds-var-m-around_medium" title="Latest Modules">
+        <div class="container" lwc:dom="manual"></div>
+    </lightning-card>
 </template>
