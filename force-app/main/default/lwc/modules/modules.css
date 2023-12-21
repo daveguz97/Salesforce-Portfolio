@@ -1,4 +1,5 @@
-lightning-card .container {
+.modules-container, .projects-container, .superbadges-container 
+{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
@@ -12,7 +13,7 @@ lightning-card .container {
 }
 
 @media screen and (max-width: 768px) {
-	lightning-card .container {
+	lightning-card .modules-container, .projects-container, .superbadges-container  {
 		display: flex;
 		flex-direction: column;
 		align-items: center;

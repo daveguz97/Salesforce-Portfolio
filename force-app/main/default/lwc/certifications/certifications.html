@@ -1,7 +1,8 @@
 <template>
-    <lightning-card title="3x Certified Salesforce Developer" class="slds-grid slds-m-around_medium">
+    <lightning-card class="slds-grid slds-m-around_medium">
         <template for:each={images} for:item="img">
-			<img class="slds-col slds-size_1-of-1 slds-large-size_1-of-3" key={img.id} src={img.src} alt={img.alt} />
+			<img class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 slds-m-vertical_x-large" key={img.id} src={img.src} alt={img.alt} />
 		</template>
+			<h4 class="slds-text-body_regular slds-text-align_center slds-text-color_inverse slds-m-vertical_large">3X Salesforce Certified Salesforce Developer</h4>
     </lightning-card>
 </template>
