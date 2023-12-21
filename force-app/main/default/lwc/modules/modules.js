@@ -1,19 +1,24 @@
 import { LightningElement, wire } from "lwc";
-import getModules from "@salesforce/apex/badgesController.getModules";
+import getBadges from "@salesforce/apex/badgesController.getBadges";
 
 export default class Modules extends LightningElement {
     modules;
     error;
+	type = {
+		trailheadapp__Type__c:  'Module'
+	}
 
-    @wire(getModules)
+    @wire(getBadges, {bindParams: '$type'})
     wiredModules({ error, data }) {
         try {
             if (data) {
                 this.modules = data;
                 this.error = undefined;
                 this.renderIcons();
+				console.log(this.modules)
             } else {
                 this.error = error;
+				console.log(this.error)
             }
         } catch (err) {
             console.log(`Error: ${err}`);
