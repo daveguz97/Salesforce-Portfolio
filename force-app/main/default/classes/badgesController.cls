@@ -3,7 +3,6 @@ public with sharing class badgesController {
     public static trailheadapp__User_Badge__c[] getBadges(
         Map<String, Object> bindParams
     ) {
-        try {
             String queryString =
                 'SELECT Id, ' +
                 'trailheadapp__Badge_Icon__c, ' +
@@ -24,8 +23,5 @@ public with sharing class badgesController {
                 AccessLevel.USER_MODE
             );
             return userBadges;
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
     }
 }
