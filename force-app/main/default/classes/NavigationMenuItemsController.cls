@@ -47,7 +47,14 @@ global with sharing class NavigationMenuItemsController {
 
         String navigationLinkSetId = null; // must provide the API the navigationLinkSetId or navigationLinkSetDeveloperName, but not both
 
-        String networkId = Network.getNetworkId();
+		String networkId;
+		if(!Test.isRunningTest()) {
+			networkId = Network.getNetworkId();
+		}
+		else {
+			networkId = [SELECT NetworkID, MemberID FROM NetworkMember LIMIT 1].NetworkId;
+		}
+
         Assert.isNotNull(networkId);
 
         // Connect API: https://developer.salesforce.com/docs/atlas.en-us.chatterapi.meta/chatterapi/connect_resources_navigation_menu_items.htm
@@ -67,8 +74,15 @@ global with sharing class NavigationMenuItemsController {
      * @return the navigation linkset DeveloperName
      */
     private static String getNavigationLinkSetDeveloperName(String navigationLinkSetMasterLabel) {
-        String networkId = Network.getNetworkId();
-        Assert.isNotNull(networkId != null);
+		String networkId;
+		if(!Test.isRunningTest()) {
+			networkId = Network.getNetworkId();
+		}
+		else {
+			networkId = [SELECT NetworkID, MemberID FROM NetworkMember LIMIT 1].NetworkId;
+		}
+		System.debug('Network prod: ' + Network.getNetworkId());
+        System.assert(networkId != null);
         
         List<NavigationLinkSet> navigationLinkSets = [
             SELECT DeveloperName,Id,MasterLabel,NetworkId 
