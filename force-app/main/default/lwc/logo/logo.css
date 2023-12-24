@@ -2,8 +2,7 @@
 	width: 100%;
 } 
 
-h4 {
-	letter-spacing: 5px;
-	font-weight: 600;
-	text-align: center;
+img {
+	max-width: 150px;
+	height: auto;
 }

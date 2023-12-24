@@ -19,3 +19,8 @@
     text-align: center; /* Center-align the heading */
 	font-weight: 600;
 }
+
+.about-me .text-content p {
+	margin: 1rem 0;
+}
+
