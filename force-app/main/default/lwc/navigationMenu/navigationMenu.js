@@ -1,5 +1,6 @@
 import { LightningElement, api, wire, track } from "lwc";
 import { CurrentPageReference } from "lightning/navigation";
+
 import getNavigationMenuItems from "@salesforce/apex/NavigationMenuItemsController.getNavigationMenuItems";
 
 /**

@@ -1,4 +1,4 @@
-\nav {
+nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -57,6 +57,7 @@
     .burger {
         display: block;
         cursor: pointer;
+		z-index: 1;
     }
 
 	.toggle .line1 {
