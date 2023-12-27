@@ -1,0 +1,28 @@
+<template>
+    <section
+        class="services slds-grid slds-grid_vertical-align-center slds-grid_align-center slds-m-vertical_large"
+    >
+        <lightning-card>
+            <div>
+                <h4 slot="title" class="slds-text-align_center">Services</h4>
+            </div>
+            <div
+                class="slds-grid slds-grid_align-center slds-text-align_center slds-grid_vertical-align-start"
+            >
+                <template for:each={icons} for:item="icon">
+                    <div class="slds-col slds-size_1-of-3" key={icon.id}>
+                        <lightning-icon
+                            class="slds-m-vertical_medium"
+                            icon-name={icon.name}
+                            variant="border-filled"
+                            alternative-text={icon.alternativeText}
+                        >
+                            <label>{icon.text}</label>
+                        </lightning-icon>
+                        <p>{icon.text}</p>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </section>
+</template>
