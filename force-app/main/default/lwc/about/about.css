@@ -4,19 +4,19 @@
 	background-color: #042b44;
 }
 
-.about-me .heading { /* Stylish, modern color */
+.about-me .heading {
 	font-size: 3rem;
-	background-image: linear-gradient(120deg, #ffffff, #ffffff); /* Striking gradient for contrast */
+	background-image: linear-gradient(120deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-transform: uppercase; /* Uppercase for a modern touch */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Enhanced text shadow for depth */
-    letter-spacing: 0.1em; /* Spacing between letters for added style */
-    display: inline-block; /* Allows the background to fit the text */
-    padding: 0 10px; /* Padding for visual comfort */
-    margin: 10px 0; /* Margin for spacing around the heading */
-    border-radius: 5px; /* Slightly rounded edges for a soft look */
-    text-align: center; /* Center-align the heading */
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.1em;
+    display: inline-block;
+    padding: 0 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
 	font-weight: 600;
 }
 
