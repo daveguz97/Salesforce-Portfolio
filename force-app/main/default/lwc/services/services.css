@@ -1,0 +1,13 @@
+.services {
+	min-height: 50vh;
+}
+
+lightning-card {
+	min-height: 30vh;
+}
+
+lightning-icon:hover {
+	transition: all .2s ease;
+	cursor: pointer;
+	transform: scale(1.1);
+}
