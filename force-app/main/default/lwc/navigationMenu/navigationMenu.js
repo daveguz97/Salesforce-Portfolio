@@ -1,5 +1,6 @@
 import { LightningElement, api, wire, track } from "lwc";
 import { CurrentPageReference } from "lightning/navigation";
+import Id from "@salesforce/user/Id";
 
 import getNavigationMenuItems from "@salesforce/apex/NavigationMenuItemsController.getNavigationMenuItems";
 
@@ -8,6 +9,7 @@ import getNavigationMenuItems from "@salesforce/apex/NavigationMenuItemsControll
  * Make sure the Guest user profile has access to the NavigationMenuItemsController apex class.
  */
 export default class NavigationMenu extends LightningElement {
+	userId = Id;
     /**
      * the label or name of the nav menu linkset (NavigationMenuLinkSet.MasterLabel) exposed by the .js-meta.xml,
      * used to look up the NavigationMenuLinkSet.DeveloperName
@@ -80,6 +82,7 @@ export default class NavigationMenu extends LightningElement {
             console.error(
                 `Navigation menu error: ${JSON.stringify(this.error)}`
             );
+            console.log("User: " + this.userId);
         }
     }
 

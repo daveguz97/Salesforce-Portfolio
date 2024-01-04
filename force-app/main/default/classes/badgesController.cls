@@ -20,7 +20,7 @@ public with sharing class badgesController {
             trailheadapp__User_Badge__c[] userBadges = Database.queryWithBinds(
                 queryString,
                 bindParams,
-                AccessLevel.USER_MODE
+                AccessLevel.SYSTEM_MODE
             );
             return userBadges;
     }

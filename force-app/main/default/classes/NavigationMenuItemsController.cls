@@ -49,7 +49,7 @@ global with sharing class NavigationMenuItemsController {
 
 		String networkId;
 		if(!Test.isRunningTest()) {
-			networkId = Network.getNetworkId();
+			networkId = '0DBHp0000008YCo';
 		}
 		else {
 			networkId = [SELECT NetworkID, MemberID FROM NetworkMember LIMIT 1].NetworkId;
@@ -76,12 +76,12 @@ global with sharing class NavigationMenuItemsController {
     private static String getNavigationLinkSetDeveloperName(String navigationLinkSetMasterLabel) {
 		String networkId;
 		if(!Test.isRunningTest()) {
-			networkId = Network.getNetworkId();
+			networkId = '0DBHp0000008YCo';
 		}
 		else {
 			networkId = [SELECT NetworkID, MemberID FROM NetworkMember LIMIT 1].NetworkId;
 		}
-		System.debug('Network prod: ' + Network.getNetworkId());
+		System.debug('Network prod: ' + '0DBHp0000008YCo');
         System.assert(networkId != null);
         
         List<NavigationLinkSet> navigationLinkSets = [
